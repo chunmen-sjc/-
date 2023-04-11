@@ -1,0 +1,13 @@
+import requests 
+url = "https://finance.sina.com.cn/realstock/company/sh000001/nc.shtml"
+headers = {'User-Agent':"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"}
+res = requests.get(url,headers = headers).text print(res)
+
+
+# 用selenium获取网页 
+from selenium import webdriver
+browser = webdriver.Chrome()
+browser.get("http://www.sse.com.cn/")
+browser.encoding = "utf-8"    #修改乱码格式  改乱码为中文 
+data = browser.page_source   #核心步骤 #
+data.encoding = "utf-8" browser.quit()                  #关闭浏览器 print(data)
